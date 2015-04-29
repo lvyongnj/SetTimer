@@ -584,6 +584,9 @@ Widget::Widget(QWidget *parent) :
 
     ui->checkBox->setChecked(st->noWeekLimit());
     showStatus();
+
+    this->setWindowTitle("聚诚LED定时系统");
+    this->setFixedSize(450, 380);
 }
 
 Widget::~Widget()
@@ -596,12 +599,9 @@ void Widget::showStatus()
 {
     if(st->noWeekLimit()){
         ui->tabWidget->setCurrentIndex(0);
-        ui->tabWidget->setTabEnabled(1, false);
-        ui->tabWidget->setTabEnabled(2, false);
-        ui->tabWidget->setTabEnabled(3, false);
-        ui->tabWidget->setTabEnabled(4, false);
-        ui->tabWidget->setTabEnabled(5, false);
-        ui->tabWidget->setTabEnabled(6, false);
+        ui->tabWidget->setTabText(0, "每天");
+        for(int i = 1; i <=6; i++)
+            ui->tabWidget->setTabEnabled(i, false);
         for(int j = 0; j <= 7; j++){
             cb[0][j]->setChecked(st->getTimerStatus(0, j));
             te[0][j]->setTime(QTime(st->getTimerHour(0, j), st->getTimerMinute(0, j)));
@@ -620,12 +620,9 @@ void Widget::showStatus()
         }
     }
     else{
-        ui->tabWidget->setTabEnabled(1, true);
-        ui->tabWidget->setTabEnabled(2, true);
-        ui->tabWidget->setTabEnabled(3, true);
-        ui->tabWidget->setTabEnabled(4, true);
-        ui->tabWidget->setTabEnabled(5, true);
-        ui->tabWidget->setTabEnabled(6, true);
+        ui->tabWidget->setTabText(0, "星期一");
+        for(int i = 1; i <= 6; i++)
+            ui->tabWidget->setTabEnabled(i, true);
         for(int i = 0; i <= 6; i++){
             for(int j = 0; j <= 7; j++){
                 cb[i][j]->setChecked(st->getTimerStatus(i, j));
