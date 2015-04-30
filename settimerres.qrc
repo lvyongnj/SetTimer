@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/jumpswOff.png</file>
+        <file>Resources/jumpswOff_hover.png</file>
+        <file>Resources/jumpswOn.png</file>
+        <file>Resources/jumpswOn_hover.png</file>
+        <file>Resources/jumpswOff_Dis.png</file>
+        <file>Resources/jumpswOn_Dis.png</file>
+    </qresource>
+</RCC>

@@ -11,7 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = SetTimer
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
         widget.cpp \
     currenttime.cpp \
@@ -24,3 +23,10 @@ HEADERS  += widget.h \
     serialcom.h
 
 FORMS    += widget.ui
+
+DISTFILES +=
+
+RC_FILE = rc.rc
+
+RESOURCES += \
+    settimerres.qrc

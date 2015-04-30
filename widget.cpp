@@ -586,7 +586,8 @@ Widget::Widget(QWidget *parent) :
     showStatus();
 
     this->setWindowTitle("聚诚LED定时系统");
-    this->setFixedSize(450, 380);
+    this->setWindowIcon(QIcon("txled.ico"));
+    this->setFixedSize(460, 380);
 }
 
 Widget::~Widget()
@@ -648,6 +649,7 @@ void Widget::on_checkBox_clicked()
 {
     st->setNoWeekLimit(ui->checkBox->isChecked());
     showStatus();
+    st->write2com();
 }
 
 void Widget::on_pushButton_clicked()
